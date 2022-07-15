@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": 3,
+      "text": "Shopping",
+      "day": "March 30 2022",
+      "reminder": true
+    },
+    {
+      "id": 21,
+      "text": "go to the gym",
+      "day": "Saturday 10pm",
+      "reminder": true
+    },
+    {
+      "id": 982,
+      "text": "go to the gym",
+      "day": "asdas",
+      "reminder": true
+    },
+    {
+      "id": 672,
+      "text": "lololol",
+      "day": "awawaaw",
+      "reminder": true
+    }
+  ]
+}
