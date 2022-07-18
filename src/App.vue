@@ -1,30 +1,12 @@
 <template>
-  <div class="container">
-    <Header title="Task Tracker" :toggleTask="this.toggleTask" @toggle-task="changeStatus" />  
+  <div>
     <router-view :toggleTask="toggleTask"></router-view>
-    <Footer/>
   </div>
 </template>
 
 <script>
-  import Header from '@/components/Header.vue'
-  import Footer from '@/components/Footer.vue'
   export default {
     name: 'App',
-    components: {
-      Header,
-      Footer
-    },
-    data() {
-      return {
-          toggleTask: false
-      }
-    },
-    methods: {
-       changeStatus() {
-            this.toggleTask = !this.toggleTask;
-        },
-    }
   }
 </script>
 
@@ -38,15 +20,7 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
-.container {
-  max-width: 500px;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  border: 1px solid steelblue;
-  padding: 30px;
-  border-radius: 5px;
-}
+
 .btn {
   display: inline-block;
   background: #000;
@@ -70,4 +44,5 @@ body {
   display: block;
   width: 100%;
 }
+
 </style>
