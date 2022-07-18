@@ -12,6 +12,7 @@
 </template>
 
 <script>
+    import store from '@/store'
     export default {
         name: 'TaskItem',
         props: {
@@ -20,14 +21,22 @@
                 default: {}
             }
         },
-        methods : {
-            deleteTask() {
-                this.$emit('delete-task', this.task.id)
-            },
-            toggleReminder() {
-                this.$emit('toggle-reminder', this.task.id)
+        setup(props) {
+            const deleteTask = () => {
+               store.dispatch('deleteTasks',props.task.id);
             }
-        }
+
+            const toggleReminder = () => {
+               store.dispatch('toggleReminder',props.task.id);
+            }
+
+          
+
+            return {
+                deleteTask,
+                toggleReminder
+            }
+        },
     }
 </script>
 

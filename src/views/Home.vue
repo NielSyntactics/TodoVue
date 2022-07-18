@@ -1,6 +1,9 @@
 <template>
-    <AddTask v-show="this.toggleTask" @add-task="addTask"  />
-    <Tasks :tasks="this.tasks"  @delete-task="deleteTask" @toggle-reminder="toggleReminder" />
+    <AddTask v-show="this.toggleTask" />
+    <!-- @add-task="addTask" -->
+    <Tasks/>
+
+    <!-- @delete-task="deleteTask" @toggle-reminder="toggleReminder" -->
 </template>
 
 <script>
@@ -12,16 +15,15 @@
         name: 'Home',
         setup() {
 
-            const {tasks, fetchTasks, deleteTask, toggleReminder, addTask} = getTodo();
-            fetchTasks();
+            // const {tasks, fetchTasks, deleteTask, toggleReminder, addTask} = getTodo();
+            // fetchTasks();
 
-
-            return {
-                tasks,
-                deleteTask,
-                addTask,
-                toggleReminder,
-            }
+            // return {
+            //     tasks,
+            //     deleteTask,
+            //     addTask,
+            //     toggleReminder,
+            // }
         },
         components: {
             AddTask,

@@ -19,31 +19,36 @@
 </template>
 
 <script>
+    import { ref, } from 'vue';
+    import store from '@/store';
+    import getTodo from '@/composables/getTodo';
     export default {
         name:'AddTask',
-        data() {
-            return {
-                reminder: false,
-                name: '',
-                date: '',
-            }
-        },
-        methods: {
-            addTask(e) {
+        setup() {
+            const reminder = ref(false);
+            const name = ref('');
+            const date = ref('')
+            const addTask = (e) => {
                 e.preventDefault();
                 const newTask = {
-                    name: this.name,
-                    date: this.date,
-                    reminder: this.reminder,
+                    name: name.value,
+                    date: date.value,
+                    reminder: reminder.value,
                 };
-                
-                this.$emit('add-task', newTask);
+                store.dispatch('addTask',newTask);
 
-                this.reminder = false;
-                this.name = '';
-                this.date = '';
+                name.value = '';
+                date.value = '';
+                reminder.value = false;
             }
-        }
+
+            return {
+                addTask,
+                reminder,
+                name,
+                date
+            }
+        },
     }
 </script>
 
