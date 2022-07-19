@@ -62,8 +62,10 @@
             }
 
             const checkEmailError = async () => {
-                const unique = await store.dispatch('checkUniqueEmail', email.value);
-                console.log(unique);
+                let unique = true;
+                if(email.value !== '') {
+                    unique = await store.dispatch('checkUniqueEmail', email.value);
+                }
                 if(email.value === '') {
                     haveErrorEmail.value = true;
                     errorEmailMessage.value = 'Email Required';
