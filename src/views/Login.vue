@@ -42,23 +42,26 @@
 .login-container{
     margin: 0;
     padding: 0;
-    widows: 100%;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     background-image: url('https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     background-repeat: no-repeat; 
     background-size: cover;
 }
 
 .card-container {
-    margin: 1em 0;
+     margin: 1em 0;
     display: grid;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
     grid-template-columns: 1fr 1fr;
-    width: 70%;
+    max-width: 1000px;
     background: #fff;
 }
 
@@ -110,15 +113,9 @@
     }
     .card-container {
         grid-template-columns: 1fr;
-    }
-}
-@media only screen
-and (device-width: 375px) 
-and (device-height: 667px) { 
-    .card-container {
         width: 90%;
         margin: 60px 0px 50px 0;
-        height: 70%;
+        height: fit-content;
     }
     .form-container {
         padding: 30px;
@@ -127,6 +124,75 @@ and (device-height: 667px) {
     .form-container h3{
         text-align: center;
     }
+}
+@media only screen
+and (device-width: 820px) 
+and (device-height: 1180px) { 
+   
+    .banner-container{
+        display: none;
+    }
+    .card-container {
+        grid-template-columns: 1fr;
+        width: 90%;
+        margin: 60px 0px 50px 0;
+        height: fit-content;
+    }
+    .form-container {
+        padding: 30px;
+    }
+
+    .form-container h3{
+        text-align: center;
+    }
+   
+}
+
+@media only screen
+and (device-width: 768px) 
+and (device-height: 1024px) { 
+   
+    .banner-container{
+        display: none;
+    }
+    .card-container {
+        grid-template-columns: 1fr;
+        width: 90%;
+        margin: 60px 0px 50px 0;
+        height: fit-content;
+    }
+    .form-container {
+        padding: 30px;
+    }
+
+    .form-container h3{
+        text-align: center;
+    }
+   
+}
+
+
+@media only screen
+and (device-width: 912px) 
+and (device-height: 1368px) { 
+   
+    .banner-container{
+        display: none;
+    }
+    .card-container {
+        grid-template-columns: 1fr;
+        width: 90%;
+        margin: 60px 0px 50px 0;
+        height: fit-content;
+    }
+    .form-container {
+        padding: 30px;
+    }
+
+    .form-container h3{
+        text-align: center;
+    }
+   
 }
 
 </style>

@@ -6,14 +6,6 @@
         <div class="form-group">
             <input type="password" id="passwordlogin" placeholder="Password" v-model="password" autocomplete="current-password">
         </div>
-        <div class="form-group-under">
-            <div>
-                <input type="checkbox" id="checkbox"> Remember me
-            </div>
-            <div>
-                <a href="#">Forgot Password?</a>
-            </div>
-        </div>
         <div class="form-button">
             <button type="submit" class="btn btn-login">Login</button>
         </div>
@@ -52,20 +44,8 @@
 .form-group input[type="email"], input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     border: none;
     border-bottom: 1px rgb(197, 189, 189) solid;
-}
-
-
-.form-group-under {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.form-group-under a {
-    text-decoration: none;
 }
 
 .form-button {
@@ -89,6 +69,13 @@ button {
         justify-content: stretch;
         align-items: stretch;
     }
+
+    
+    .form-group input[type="email"], input[type="password"] {
+        font-size: 27px;
+    }
 }
+
+
 
 </style>

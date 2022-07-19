@@ -73,4 +73,15 @@
     border: 1px #000 solid;
     background: #fff;
 }
+
+@media only screen
+and (device-width: 280px) 
+and (device-height: 653px) { 
+    .item {
+        flex-direction: column;
+    }
+    .item button {
+        margin-left: 0;
+    }
+}
 </style>

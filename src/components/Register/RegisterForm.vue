@@ -190,4 +190,19 @@
     border-bottom: 1px red solid !important;
 }
 
+
+@media only screen and (max-width: 750px) {
+    button {
+        margin-top: 1rem;
+        display: grid;
+        justify-content: stretch;
+        align-items: stretch;
+    }
+
+    
+    .form-group input[type="name"], input[type="email"], input[type="password"] {
+        font-size: 27px;
+    }
+}
+
 </style>

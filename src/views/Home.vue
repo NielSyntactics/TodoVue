@@ -43,16 +43,6 @@
             Footer
         },
         props: ['toggleTask'],
-        // data() {
-        //     return {
-        //         toggleTask: false
-        //     }
-        // },
-        //  methods: {
-        //     changeStatus() {
-        //         this.toggleTask = !this.toggleTask;
-        //     },
-        // }
     }
 </script>
 
@@ -66,4 +56,122 @@
   padding: 30px;
   border-radius: 5px;
 }
+
+@media only screen
+and (device-width: 375px) 
+and (device-height: 667px) { 
+    .container{
+        border: none;
+    }
+}
+
+@media only screen
+and (device-width: 414px) 
+and (device-height: 896px) { 
+    .container{
+        border: none;
+    }
+}
+
+@media only screen
+and (device-width: 390px) 
+and (device-height: 844px) { 
+    .container{
+        border: none;
+    }
+}
+
+@media only screen
+and (device-width: 393px) 
+and (device-height: 851px) { 
+    .container{
+        border: none;
+    }
+}
+
+@media only screen
+and (device-width: 360px) 
+and (device-height: 740px) { 
+    .container{
+        border: none;
+    }
+}
+
+@media only screen
+and (device-width: 412px) 
+and (device-height: 915px) { 
+    .container{
+        border: none;
+    }
+}
+
+@media only screen
+and (device-width: 820px) 
+and (device-height: 1180px) { 
+    .container{
+        border: none;
+        max-width: 1000px;
+    }
+}
+
+@media only screen
+and (device-width: 768px) 
+and (device-height: 1024px) { 
+    .container{
+        border: none;
+        max-width: 1000px;
+    }
+}
+
+@media only screen
+and (device-width: 912px) 
+and (device-height: 1368px) { 
+    .container{
+        border: none;
+        max-width: 1000px;
+    }
+}
+
+@media only screen
+and (device-width: 540px) 
+and (device-height: 720px) { 
+    .container{
+        border: none;
+    }
+}
+
+@media only screen
+and (device-width: 280px) 
+and (device-height: 653px) { 
+    .container{
+        border: none;
+    }
+}
+
+@media only screen
+and (device-width: 412px) 
+and (device-height: 914px) { 
+    .container{
+        border: none;
+    }
+}
+
+@media only screen
+and (device-width: 1024px) 
+and (device-height: 600px) { 
+    .container{
+        border: none;
+        max-width: 1000px;
+    }
+}
+
+@media only screen
+and (device-width: 1280px) 
+and (device-height: 800px) { 
+    .container{
+        border: none;
+        max-width: 1100px;
+    }
+}
+
 </style>
