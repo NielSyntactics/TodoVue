@@ -2,23 +2,23 @@
     <form @submit="submitNewUser">
         <div class="form-group">
             <input :class="haveErrorName ? 'border-error' : ''" type="name" name="name" id="id" placeholder="Full Name"
-                v-model="name" @focusout="checkNameError">
+                v-model="name" @focusout="checkNameError" autocomplete="name">
             <small class="error-message" v-show="haveErrorName">{{errorNameMessage}}</small>
         </div>
         <div class="form-group">
             <input :class="haveErrorEmail ? 'border-error' : ''" type="email" name="email" id="email"
-                placeholder="Email" v-model="email" @focusout="checkEmailError">
+                placeholder="Email" v-model="email" @focusout="checkEmailError" autocomplete="email">
             <small class="error-message" v-show="haveErrorEmail">{{errorEmailMessage}}</small>
         </div>
         <div class="form-group">
             <input :class="haveErrorPassword ? 'border-error' : ''" type="password" name="password" id="password"
-                placeholder="Password" v-model="password" @focusout="checkPasswordError">
+                placeholder="Password" v-model="password" @focusout="checkPasswordError" autocomplete="new-password">
             <small class="error-message" v-show="haveErrorPassword">{{errorPasswordMessage}}</small>
         </div>
         <div class="form-group">
             <input :class="haveErrorPassword2 ? 'border-error' : ''" type="password" name="password_confirmation"
                 id="password_confirmation" placeholder="Re - enter Password" v-model="password_confirmation"
-                @input="checkPasswordError2">
+                @input="checkPasswordError2" autocomplete="new-password">
             <small class="error-message" v-show="haveErrorPassword2">{{errorPasswordMessage}}</small>
         </div>
         <div class="form-group-button">
@@ -29,14 +29,14 @@
 
 <script>
     import { ref } from 'vue';
-    import store from '@/store'
+    import store from '@/store';
     export default {
         name: 'RegisterForm',
         setup() {
-            const name = ref('John Doe');
-            const email = ref('doe@gmail.com');
-            const password = ref('password');
-            const password_confirmation = ref('password');
+            const name = ref('');
+            const email = ref('');
+            const password = ref('');
+            const password_confirmation = ref('');
             const haveErrorEmail = ref(false);
             const haveErrorName = ref(false);
             const haveErrorPassword = ref(false);
@@ -61,8 +61,9 @@
                 return re.test(email);
             }
 
-            const checkEmailError = () => {
-                store.dispatch('checkUniqueEmail',email.value);
+            const checkEmailError = async () => {
+                const unique = await store.dispatch('checkUniqueEmail', email.value);
+                console.log(unique);
                 if(email.value === '') {
                     haveErrorEmail.value = true;
                     errorEmailMessage.value = 'Email Required';
@@ -71,7 +72,11 @@
                     haveErrorEmail.value = true;
                     errorEmailMessage.value = 'Invalid Email';
                     checkErrorButton.value = true;
-                }else {
+                } else if(unique.isNotUnique) {
+                    haveErrorEmail.value = true;
+                    errorEmailMessage.value = unique.Message;
+                    checkErrorButton.value = true;
+                } else {
                     haveErrorEmail.value = false;
                     checkErrorButton.value = false;
                 }
@@ -82,9 +87,16 @@
                     haveErrorPassword.value = true;
                     checkErrorButton.value = true;
                     errorPasswordMessage.value = 'Password length must be 8 or more characters long'
-                }else {
+                }
+                else {
                     haveErrorPassword.value = false;
                     checkErrorButton.value = false;
+                }
+
+                if(password.value !== password_confirmation.value){
+                    haveErrorPassword2.value = true;
+                    checkErrorButton.value = true;
+                    errorPasswordMessage.value = 'Password dont match';
                 }
             }
 
@@ -107,8 +119,7 @@
                     password: password.value,
                     password_confirmation: password_confirmation.value
                 }
-
-                console.log(newUser);
+                store.dispatch('registerNewUser',newUser);
             }
 
             return {

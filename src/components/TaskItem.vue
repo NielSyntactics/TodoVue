@@ -22,12 +22,13 @@
             }
         },
         setup(props) {
+            const token = store.getters.getToken;
             const deleteTask = () => {
-               store.dispatch('deleteTasks',props.task.id);
+               store.dispatch('deleteTasks',{id:props.task.id,token:token});
             }
 
             const toggleReminder = () => {
-               store.dispatch('toggleReminder',props.task.id);
+               store.dispatch('toggleReminder',{id:props.task.id,token:token});
             }
 
           

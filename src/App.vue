@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view :toggleTask="toggleTask"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 

@@ -4,8 +4,13 @@
 </template>
 
 <script>
+    import store from '@/store';
     export default {
         name: 'About',
+        setup() {
+            const isAuthenticated = store.getters.isAuthenticated;
+            store.dispatch('checkIfAuthenticated',isAuthenticated);
+        }
     }
 </script>
 

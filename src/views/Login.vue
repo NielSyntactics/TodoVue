@@ -7,7 +7,7 @@
                     <b>Todo.</b>
                 </h1>
                 <p>
-                    Happiness often sneaks in through a door you didn’t know you left open.
+                    Happiness often sneaks in through a door you didnt know you left open.
                 </p>
             </div>
             <div class="form-container">
@@ -15,33 +15,24 @@
                 <p>
                     Don't have an account? <router-link to="/register" class="register-link">Create your account</router-link>, it takes less than a minute.
                 </p>
-                <form action="">
-                    <div class="form-group">
-                        <input type="email" name="" id="" placeholder="Email Address">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="" id="" placeholder="Password">
-                    </div>
-                    <div class="form-group-under">
-                        <div>
-                            <input type="checkbox" name="" id=""> Remember me
-                        </div>
-                        <div>
-                            <a href="#">Forgot Password?</a>
-                        </div>
-                    </div>
-                    <div class="form-group-button">
-                        <button type="submit" class="btn btn-login">Login</button>
-                    </div>
-                </form>
+                <LoginForm/>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import store from '@/store';
+    import LoginForm from '@/components/Login/LoginForm.vue'
     export default {
-        name: 'Login'
+        name: 'Login',
+        setup() {
+            const isAuthenticated = store.getters.isAuthenticated;
+            store.dispatch('checkIfAuthenticated',isAuthenticated);
+        },
+        components: {
+            LoginForm
+        }
     }
 </script>
 
@@ -113,56 +104,12 @@
     margin-top: 2rem;
 }
 
-.form-group input[type="email"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-bottom: 1px rgb(197, 189, 189) solid;
-}
-
-.form-group-under {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.form-group-under a {
-    text-decoration: none;
-}
-
-.btn-login {
-    border-radius: 25px !important;
-    background: #82d444 !important;
-    padding-right: 30px;
-    padding-left: 30px;
-    box-shadow: 0 3px 10px rgba(196, 191, 191, 0.2);
-}
-
-.form-group-button {
-    display: flex;
-    justify-content: end;
-
-}
-
 @media only screen and (max-width: 750px) {
     .banner-container{
         display: none;
     }
     .card-container {
         grid-template-columns: 1fr;
-    }
-
-    .form-group-under {
-        justify-content: start;
-        flex-direction: column;
-    }
-
-    .form-group-button {
-        margin-top: 1rem;
-        display: grid;
-        justify-content: stretch;
-        align-items: stretch;
     }
 }
 @media only screen

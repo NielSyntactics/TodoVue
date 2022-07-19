@@ -16,10 +16,16 @@
     import Header from '@/components/Header.vue'
     import Footer from '@/components/Footer.vue'
     import { ref } from 'vue';
+    import store  from '@/store';
 
     export default {
         name: 'Home',
         setup() {
+            const isAuthenticated = store.getters.isAuthenticated;
+            store.dispatch('checkIfAuthenticated',isAuthenticated);
+            
+            const token = store.getters.getToken;
+            store.dispatch('getUserProfile',token);
             const toggleTask = ref(false);
             const changeStatus = () => {
                 toggleTask.value = !toggleTask.value;

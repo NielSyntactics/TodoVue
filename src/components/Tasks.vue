@@ -16,8 +16,9 @@
             TaskItem
         },
         setup() {
-            store.dispatch('getAllTasks');
-
+            const token = store.getters.getToken;
+            console.log(token);
+            store.dispatch('getAllTasks',token);
         }
     }
 </script>

@@ -22,11 +22,16 @@
 </template>
 
 <script>  
-    import RegisterFormVue from '@/components/Register/RegisterForm.vue'
+    import RegisterFormVue from '@/components/Register/RegisterForm.vue';
+    import store from '@/store';
     export default {
         name: 'Register',
         components: {
             RegisterFormVue
+        },
+        setup() {
+            const isAuthenticated = store.getters.isAuthenticated;
+            store.dispatch('checkIfAuthenticated',isAuthenticated);
         }
     }
 </script>

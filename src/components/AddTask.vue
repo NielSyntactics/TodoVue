@@ -21,13 +21,14 @@
 <script>
     import { ref, } from 'vue';
     import store from '@/store';
-    import getTodo from '@/composables/getTodo';
     export default {
         name:'AddTask',
         setup() {
             const reminder = ref(false);
             const name = ref('');
-            const date = ref('')
+            const date = ref('');
+            const token = store.getters.getToken;
+            
             const addTask = (e) => {
                 e.preventDefault();
                 const newTask = {
@@ -35,7 +36,7 @@
                     date: date.value,
                     reminder: reminder.value,
                 };
-                store.dispatch('addTask',newTask);
+                store.dispatch('addTask',{task:newTask,token:token});
 
                 name.value = '';
                 date.value = '';
